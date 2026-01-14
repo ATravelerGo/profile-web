@@ -3,58 +3,44 @@ import Logo from '@/assets/logo/logo.png';
 import Theme from '@/assets/icon/theme.svg';
 import Language from '@/assets/icon/language.svg';
 import Menu from '@/assets/icon/menu.svg';
-import { Drawer } from 'antd';
+import MenuDrawer from './MenuDrawer/MenuDrawer.tsx';
 import { useState } from 'react';
 function Header() {
   const [isOpenDrawer, setIsOpenDrawer] = useState(false);
 
   return (
-    <div className={style['header']}>
-      <div className={style['header__navbar']}>
-        <img src={Logo} height={100} width={150} alt="logo" />
-        <div className={style['header__links']}>
-          <a href="/">Skills</a>
-          <a href="/about">Portfolio</a>
-          <a href="/contact">Stats</a>
-          <a href="/contact">Testimonials</a>
-          <a href="/contact">Contact</a>
-        </div>
-      </div>
-      <div className={style['header__tools']}>
-        <div className={'button'}>
-          <img className={style['theme-icon']} src={Theme} alt="" width={16} />
-        </div>
-        <div className={'button'}>
-          <img className={style['theme-icon']} src={Language} alt="" width={16} />
-        </div>
-        <div className={'button'}>Get CV</div>
-      </div>
-      <div className={style['header__menu-icon']}>
-        <div className={'button'} onClick={() => setIsOpenDrawer(true)}>
-          <img src={Menu} alt="" width={16} />
-        </div>
-      </div>
-
-      {/*  抽屉菜单*/}
-      <Drawer
-        placement="right"
-        closable={false}
-        styles={{
-          body: {
-            padding: 0,
-          },
-        }}
-        onClose={() => setIsOpenDrawer(false)}
-        open={isOpenDrawer}
-      >
-        <div className={style['drawer']}>
-          <div className={style['drawer__header']}>
-            <img src={Logo} height={100} width={150} alt="logo" />
+    <>
+      <div className={style['header']}>
+        <div className={style['header__navbar']}>
+          <img src={Logo} height={100} width={150} alt="logo" />
+          <div className={style['header__links']}>
+            <a href="/">Skills</a>
+            <a href="/about">Portfolio</a>
+            <a href="/contact">Stats</a>
+            <a href="/contact">Testimonials</a>
+            <a href="/contact">Contact</a>
           </div>
-          <div className={style['drawer__links']}></div>
         </div>
-      </Drawer>
-    </div>
+        <div className={style['header__tools']}>
+          <div className={'button'}>
+            <img className={style['theme-icon']} src={Theme} alt="" width={16} />
+          </div>
+          <div className={'button'}>
+            <img className={style['theme-icon']} src={Language} alt="" width={16} />
+          </div>
+          <div className={'button'}>Get CV</div>
+        </div>
+        <div className={style['header__menu-icon']}>
+          <div className={'button'} onClick={() => setIsOpenDrawer(true)}>
+            <img src={Menu} alt="" width={16} />
+          </div>
+        </div>
+      </div>
+      <MenuDrawer
+        isOpenDrawer={isOpenDrawer}
+        onSetIsOpenDrawer={(isOpenDrawer: boolean) => setIsOpenDrawer(isOpenDrawer)}
+      />
+    </>
   );
 }
 export default Header;
