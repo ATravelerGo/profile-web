@@ -9,11 +9,16 @@
     flex-shrink: 0;
   }
 
+
+
+
   &__links {
     display: flex;
     align-items: center;
     gap: 20px;
   }
+
+
 
 
   &__tools {
@@ -23,8 +28,27 @@
     align-items: center;
   }
 
+  &__menu-icon {
+    display: none;
+  }
+
+  @media (max-width: 800px) {
+    &__links {
+      display: none;
+    }
+    &__tools {
+      display: none;
+    }
+
+    &__menu-icon {
+      display: block;
+    }
+  }
+
 }
 
 .theme-icon {
   transform: rotateY(-180deg);
 }
+
+
