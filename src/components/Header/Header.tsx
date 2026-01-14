@@ -6,9 +6,9 @@ import Menu from '@/assets/icon/menu.svg';
 function Header() {
   return (
     <div className={style['header']}>
-      <div className={style['header-navbar']}>
+      <div className={style['header__navbar']}>
         <img src={Logo} height={100} width={150} alt="logo" />
-        <div className={style['header-links']}>
+        <div className={style['header__links']}>
           <a href="/">Skills</a>
           <a href="/about">Portfolio</a>
           <a href="/contact">Stats</a>
@@ -16,7 +16,7 @@ function Header() {
           <a href="/contact">Contact</a>
         </div>
       </div>
-      <div className={style['header-tools']}>
+      <div className={style['header__tools']}>
         <div className={'button'}>
           <img className={style['theme-icon']} src={Theme} alt="" width={16} />
         </div>
@@ -25,7 +25,7 @@ function Header() {
         </div>
         <div className={'button'}>Get CV</div>
       </div>
-      <div className={style['header-menu-icon']}>
+      <div className={style['header__menu-icon']}>
         <div className={'button'}>
           <img src={Menu} alt="" width={16} />
         </div>
