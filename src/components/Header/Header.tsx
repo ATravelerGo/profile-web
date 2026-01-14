@@ -3,7 +3,11 @@ import Logo from '@/assets/logo/logo.png';
 import Theme from '@/assets/icon/theme.svg';
 import Language from '@/assets/icon/language.svg';
 import Menu from '@/assets/icon/menu.svg';
+import { Drawer } from 'antd';
+import { useState } from 'react';
 function Header() {
+  const [isOpenDrawer, setIsOpenDrawer] = useState(false);
+
   return (
     <div className={style['header']}>
       <div className={style['header__navbar']}>
@@ -26,10 +30,30 @@ function Header() {
         <div className={'button'}>Get CV</div>
       </div>
       <div className={style['header__menu-icon']}>
-        <div className={'button'}>
+        <div className={'button'} onClick={() => setIsOpenDrawer(true)}>
           <img src={Menu} alt="" width={16} />
         </div>
       </div>
+
+      {/*  抽屉菜单*/}
+      <Drawer
+        placement="right"
+        closable={false}
+        styles={{
+          body: {
+            padding: 0,
+          },
+        }}
+        onClose={() => setIsOpenDrawer(false)}
+        open={isOpenDrawer}
+      >
+        <div className={style['drawer']}>
+          <div className={style['drawer__header']}>
+            <img src={Logo} height={100} width={150} alt="logo" />
+          </div>
+          <div className={style['drawer__links']}></div>
+        </div>
+      </Drawer>
     </div>
   );
 }
